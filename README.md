@@ -1,26 +1,46 @@
 # HistoryMindAI
 
-AI-powered history assistant.
+HistoryMindAI is a modular, AI-powered historical assistant.
+
+## Repository Type
+
+This repository is a **monorepo orchestrator**, using **git submodules** to manage independent components.
 
 ## Structure
 
-- ai/ : AI pipeline (Python)
-- BE_HistoryMindAI/ : Backend API (Spring Boot)
-- FE_HistoryMindAI/ : Frontend (Web)
+- BE_HistoryMind_AI/  
+  Backend service (Spring Boot).  
+  Acts as the **orchestrator** and contains all business decisions.
 
-## Contracts
+- FE_HistoryMind_AI/  
+  Frontend application.  
+  UI only, no business logic.
 
-- contracts/api.yaml : FE ↔ BE contract
-- contracts/errors.yaml: Error codes
+- vietnam_history_dataset/  
+  Public historical dataset used as **knowledge source** for AI reasoning.  
+  This is **data only**, not executable logic.
 
-## Architecture
+- contracts/  
+  API and data contracts.  
+  **Single source of truth** for FE ↔ BE ↔ AI communication.
 
-- architecture/README_ARCHITECTURE.md
-- architecture/responsibility.md
-- architecture/data-contract.md
+- architecture/  
+  System design, responsibility split, and architectural rules.
 
-## Rules
+## AI Service (Important Note)
 
-- FE must follow api.yaml
-- BE must follow errors.yaml
-- AI must not contain business logic
+The **AI service itself (models, pipelines, FastAPI app)** is **NOT included** in this repository.
+
+- It is deployed separately
+- It consumes:
+  - `vietnam_history_dataset`
+  - contracts defined in `contracts/`
+- It contains **NO business logic**
+
+## Communication Rules
+
+- FE → BE only
+- BE → AI only
+- FE MUST NOT call AI directly
+- AI MUST NOT access database or apply business rules
+- Contracts are authoritative
