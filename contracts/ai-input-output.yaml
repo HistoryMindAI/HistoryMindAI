@@ -1,0 +1,9 @@
+ai_request:
+  query: string
+  tone: string
+  context: string[]
+
+ai_response:
+  answer: string
+  confidence: number
+  sources: string[]
