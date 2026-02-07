@@ -4,3 +4,6 @@
 [submodule "vietnam_history_dataset"]
 	path = vietnam_history_dataset
 	url = https://github.com/HistoryMindAI/vietnam_history_dataset
+[submodule "FE_HistoryMind_AI"]
+	path = FE_HistoryMind_AI
+	url = https://github.com/HistoryMindAI/FE_HistoryMind_AI.git
