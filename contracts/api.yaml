@@ -1,0 +1,94 @@
+openapi: 3.0.3
+info:
+  title: HistoryMindAI API
+  version: 1.0.0
+
+paths:
+  /chat:
+    post:
+      summary: Chat with HistoryMindAI
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatRequest"
+      responses:
+        "200":
+          description: Chat response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChatResponse"
+        "4XX":
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "5XX":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  schemas:
+    ChatRequest:
+      type: object
+      required: [query]
+      properties:
+        query:
+          type: string
+          maxLength: 500
+
+    ChatResponse:
+      type: object
+      required:
+        - query
+        - intent
+        - no_data
+      properties:
+        query:
+          type: string
+          description: Original user query
+
+        intent:
+          type: string
+          description: AI inferred intent
+
+        answer:
+          type: string
+          nullable: true
+          description: AI answer, null when no_data = true
+
+        events:
+          type: array
+          nullable: true
+          items:
+            $ref: "#/components/schemas/Event"
+
+        no_data:
+          type: boolean
+          description: AI could not find reliable data
+
+    Event:
+      type: object
+      required: [title, year]
+      properties:
+        title:
+          type: string
+        year:
+          type: integer
+        description:
+          type: string
+
+    ErrorResponse:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+        message:
+          type: string

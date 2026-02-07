@@ -1,0 +1,24 @@
+errors:
+  INVALID_REQUEST:
+    http_status: 400
+    message: Invalid request data
+
+  UNAUTHORIZED:
+    http_status: 401
+    message: Unauthorized access
+
+  FORBIDDEN:
+    http_status: 403
+    message: Access denied
+
+  AI_TIMEOUT:
+    http_status: 504
+    message: AI service timeout
+
+  AI_RESPONSE_INVALID:
+    http_status: 502
+    message: Invalid AI response format
+
+  INTERNAL_ERROR:
+    http_status: 500
+    message: Internal server error

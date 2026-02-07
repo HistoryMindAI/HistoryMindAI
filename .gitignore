@@ -1,0 +1,22 @@
+# ===== Common =====
+.env
+.env.*
+*.log
+
+# ===== Java =====
+target/
+*.iml
+.idea/
+
+# ===== Node =====
+node_modules/
+dist/
+
+# ===== Python =====
+__pycache__/
+.venv/
+*.pyc
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
