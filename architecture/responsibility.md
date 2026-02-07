@@ -1,21 +1,22 @@
-## Responsibility Split
+# Responsibility Split
 
-### AI
+## AI
 
 - NLP
 - vector search
 - text generation
-- KHÔNG validate business rule
+- returns raw intelligence
 
-### Backend
+## Backend
 
-- validate input
-- authorize
-- decide workflow
-- call AI
+- input validation
+- orchestration
+- intent inference
+- event construction
+- error mapping
 
-### Frontend
+## Frontend
 
-- display
-- form
-- KHÔNG xử lý logic nghiệp vụ
+- UI rendering
+- user interaction
+- NO business logic

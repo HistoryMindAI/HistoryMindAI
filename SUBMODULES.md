@@ -1,0 +1,2 @@
+- BE_HistoryMindAI: fixed at commit 84c872e
+- vietnam_history_dataset: fixed at 167a818

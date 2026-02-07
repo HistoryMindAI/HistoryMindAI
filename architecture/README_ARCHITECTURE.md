@@ -1,26 +1,21 @@
-# HistoryMindAI Architecture
+# Architecture Overview
 
-## Components
+## Flow
 
-- ai
-  - embedding
-  - semantic search
-  - storyteller
-- BE_HistoryMindAI
-  - REST API
-  - auth
-  - orchestration
-- FE_HistoryMindAI
-  - UI
-  - call BE only
+FE → BE → AI → BE → FE
 
-## Communication
+## Backend (BE)
 
-- FE → BE: REST
-- BE → AI: internal API / function call
+- validates input
+- authorizes request
+- calls AI
+- enriches response
+- applies business rules
 
-## Rules
+## AI Service
 
-- FE KHÔNG gọi AI trực tiếp
-- AI KHÔNG truy cập DB
-- AI KHÔNG chứa business logic
+- semantic search
+- reasoning
+- text generation
+- NO database access
+- NO business decisions
