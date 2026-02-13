@@ -1,24 +1,30 @@
-# ===== Common =====
 .env
 .env.*
 *.log
 
-# ===== Java =====
 target/
 *.iml
 .idea/
 
-# ===== Node =====
 node_modules/
 dist/
 
-# ===== Python =====
 __pycache__/
 .venv/
 *.pyc
 
-# ===== OS =====
 .DS_Store
 Thumbs.db
+
+.agent/
+.kiro/
+GEMINI.md
+.gemini/
+*.log
+
+*.md
+!README.md
+!**/README.md
+!**/AI_DEVELOPMENT_ROADMAP.md
 
 ai/
