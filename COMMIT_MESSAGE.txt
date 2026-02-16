@@ -1,0 +1,54 @@
+# Commit Message for Bug Fixes
+
+```
+fix: resolve 7 critical bugs (crashes, race conditions, data corruption)
+
+CRITICAL FIXES:
+- Bug #1: Add empty string validation before capitalization (engine.py:510)
+  * Prevents IndexError when clean_story becomes empty after regex cleaning
+  * Impact: No more crashes on malformed event data
+
+- Bug #2: Validate lists before min/max operations (engine.py:649,591)
+  * Filter out None/invalid scores before max() call
+  * Add try-catch for year range calculations
+  * Impact: No more ValueError crashes on empty score lists
+
+- Bug #5: Reject negative FAISS indices (search_service.py:556)
+  * Changed from `idx == -1` to `idx < 0` check
+  * Prevents Python negative indexing from returning wrong documents
+  * Impact: Ensures correct historical data returned
+
+- Bug #6: Batch message state updates (useChatStream.ts:142-184)
+  * Reduce state updates from 100/sec to 10/sec with interval batching
+  * Eliminates race conditions in streaming responses
+  * Impact: Smooth UI rendering, no lost content
+
+HIGH PRIORITY FIXES:
+- Bug #3: Validate normalizedKey before deduplication (format-response.ts:109)
+  * Skip events with empty normalized keys
+  * Impact: Better deduplication accuracy
+
+- Bug #4: Type/null checking in _format_event_text (engine.py:494-510)
+  * Validate clean_story and clean_title are valid strings
+  * Impact: Prevents data corruption
+
+MEDIUM PRIORITY FIXES:
+- Bug #7: Continue streaming on JSON parse errors (useChatStream.ts:150-153)
+  * Changed from break to continue on malformed JSON
+  * Impact: Users get complete responses
+
+FILES MODIFIED:
+- vietnam_history_dataset/ai-service/app/services/engine.py (4 fixes)
+- vietnam_history_dataset/ai-service/app/services/search_service.py (1 fix)
+- FE_HistoryMind_AI/src/hooks/useChatStream.ts (2 fixes)
+- FE_HistoryMind_AI/src/lib/format-response.ts (1 fix)
+
+TESTING:
+- Created 150+ unit tests covering all bugs and edge cases
+- Test files: test_bug_fixes.py, test_edge_cases.py,
+  format-response-edge-cases.test.ts, useChatStream-race-conditions.test.ts
+
+BREAKING CHANGES: None
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+```
