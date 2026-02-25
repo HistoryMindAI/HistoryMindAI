@@ -1,4 +1,4 @@
-# 🏛 HistoryMind AI
+# HistoryMind AI
 
 **Trợ lý lịch sử Việt Nam thông minh** — hệ thống chatbot sử dụng AI để tra cứu và trả lời câu hỏi về lịch sử Việt Nam.
 
@@ -8,28 +8,28 @@
 
 ---
 
-## 🏗 Kiến trúc Tổng thể
+## Kiến trúc Tổng thể
 
 ```mermaid
 graph LR
-    subgraph "🖥 Frontend"
+    subgraph "Frontend"
         FE["React 18 + Vite<br/>TailwindCSS + Shadcn/ui"]
     end
 
-    subgraph "⚙️ Backend"
+    subgraph "Backend"
         BE["Spring Boot 3<br/>WebFlux (Reactive)"]
     end
 
-    subgraph "🤖 AI Service"
+    subgraph "AI Service"
         AI["FastAPI<br/>NLU + FAISS + Engine"]
     end
 
-    subgraph "💾 Data"
+    subgraph "Data"
         FAISS["FAISS Index<br/>630 vectors"]
         KB["knowledge_base.json<br/>Aliases, Synonyms, Patterns"]
     end
 
-    USER["👤 User"] --> FE
+    USER["User"] --> FE
     FE -- "POST /api/v1/chat/ask" --> BE
     BE -- "POST /api/chat" --> AI
     AI --> FAISS & KB
@@ -40,7 +40,7 @@ graph LR
 
 ---
 
-## 🔄 Luồng Xử lý
+## Luồng Xử lý
 
 ```mermaid
 sequenceDiagram
@@ -70,19 +70,19 @@ sequenceDiagram
 
 ---
 
-## 📦 Cấu trúc Repository
+## Cấu trúc Repository
 
 Đây là **monorepo orchestrator** sử dụng **git submodules**:
 
 ```
 HistoryMindAI/
-├── FE_HistoryMind_AI/          # 🖥 Frontend (git submodule)
+├── FE_HistoryMind_AI/          # Frontend (git submodule)
 │   └── React 18 + TypeScript + Vite + TailwindCSS
 │
-├── BE_HistoryMind_AI/          # ⚙️ Backend (git submodule)
+├── BE_HistoryMind_AI/          # Backend (git submodule)
 │   └── Spring Boot 3 + WebFlux + WebClient
 │
-├── vietnam_history_dataset/    # 🤖 AI Service + Data (git submodule)
+├── vietnam_history_dataset/    # AI Service + Data (git submodule)
 │   ├── ai-service/             # FastAPI application
 │   │   ├── app/                # Core: engine, NLU, search
 │   │   ├── scripts/            # Data pipeline
@@ -90,14 +90,14 @@ HistoryMindAI/
 │   │   └── knowledge_base.json # Knowledge base
 │   └── tests/                  # 408 unit tests
 │
-├── contracts/                  # 📋 API & Data contracts
-├── architecture/               # 📐 System design docs
+├── contracts/                  # API & Data contracts
+├── architecture/               # System design docs
 └── README.md                   # ← Bạn đang đọc file này
 ```
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ### 1. Clone với submodules
 
@@ -140,7 +140,7 @@ npm run dev
 
 ---
 
-## 🧠 Tính năng AI
+## Tính năng AI
 
 | Tính năng | Mô tả |
 |-----------|-------|
@@ -154,14 +154,14 @@ npm run dev
 
 ---
 
-## 📐 Quy tắc Giao tiếp
+## Quy tắc Giao tiếp
 
 ```mermaid
 graph TD
-    FE["Frontend"] -- "✅ Chỉ gọi" --> BE["Backend"]
-    BE -- "✅ Chỉ gọi" --> AI["AI Service"]
-    FE -. "❌ KHÔNG gọi trực tiếp" .-> AI
-    AI -. "❌ KHÔNG truy cập DB" .-> DB["Database"]
+    FE["Frontend"] -- "Chỉ gọi" --> BE["Backend"]
+    BE -- "Chỉ gọi" --> AI["AI Service"]
+    FE -. "KHÔNG gọi trực tiếp" .-> AI
+    AI -. "KHÔNG truy cập DB" .-> DB["Database"]
 ```
 
 | Quy tắc | Mô tả |
@@ -173,7 +173,7 @@ graph TD
 
 ---
 
-## 🧪 Testing
+## Testing
 
 | Service | Framework | Tests | Lệnh |
 |---------|-----------|-------|------|
@@ -183,7 +183,7 @@ graph TD
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 | Service | Platform | URL |
 |---------|----------|-----|
@@ -193,10 +193,10 @@ graph TD
 
 ---
 
-## 📚 Tech Stack
+## Tech Stack
 
 | Layer | Công nghệ |
-|-------|-----------|
+|-------|-----------| 
 | Frontend | React 18, TypeScript, Vite 7, TailwindCSS, Framer Motion |
 | Backend | Spring Boot 3, WebFlux, WebClient, Java 17 |
 | AI Service | FastAPI, FAISS, sentence-transformers, Python 3.11+ |
@@ -206,4 +206,4 @@ graph TD
 
 ---
 
-_Được phát triển nhằm gìn giữ và truyền bá kiến thức lịch sử Việt Nam thông qua công nghệ AI hiện đại. 🇻🇳_
+_Được phát triển nhằm gìn giữ và truyền bá kiến thức lịch sử Việt Nam thông qua công nghệ AI hiện đại._
