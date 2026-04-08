@@ -7,3 +7,6 @@
 [submodule "FE_HistoryMind_AI"]
 	path = FE_HistoryMind_AI
 	url = https://github.com/HistoryMindAI/FE_HistoryMind_AI.git
+[submodule "Vulnerability"]
+	path = Vulnerability
+	url = https://github.com/HistoryMindAI/Vulnerability.git
