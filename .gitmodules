@@ -1,3 +1,6 @@
+[submodule ".github"]
+	path = .github
+	url = https://github.com/HistoryMindAI/.github.git
 [submodule "BE_HistoryMind_AI"]
 	path = BE_HistoryMind_AI
 	url = https://github.com/HistoryMindAI/BE_HistoryMind_AI
